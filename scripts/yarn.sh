@@ -21,7 +21,7 @@ sudo yarn global add bower \
   less \
   nodemon \
   phplint \
-  preact-cli
+  preact-cli \
   sass \
   tslint \
   typescript \
