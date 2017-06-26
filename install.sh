@@ -40,7 +40,7 @@ source scripts/link.sh
 
 # Installing the apps that are needed
 echo -e "Trying to install some apps"
-if [ "$OS" = "Ubuntu" || "$OS" = "elementary"]; then
+if [[ ("$OS" = "Ubuntu") || ("$OS" = "elementary") ]]; then
   source scripts/debian-based.sh
 elif [ "$OS" = "Arch" ]; then
   source scripts/arch-based.sh

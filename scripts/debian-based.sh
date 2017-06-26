@@ -38,6 +38,10 @@ sudo add-apt-repository ppa:openshot.developers/ppa
 # Sources for Ruby
 sudo apt-add-repository ppa:brightbox/ruby-ng
 
+# Sources for Yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
 # Lets updated so we can get new sources
 sudo apt-get update
 
@@ -61,7 +65,7 @@ sudo apt-get install ack-grep \
   irssi-scripts \
   libffi-dev \
   libsqlite3-dev \
-  libyaml \
+  libyaml-dev \
   linux-image-extra-$(uname -r) \
   linux-image-extra-virtual \
   markdown \
