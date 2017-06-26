@@ -10,7 +10,6 @@ sudo yarn global add bower \
   firebase-tools \
   generator-aspnet \
   git-standup \
-  global \
   gulp \
   handlebars \
   jade-lint \

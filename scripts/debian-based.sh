@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-echo -e "Adding a prereq"
-sudo apt-get install software-properties-common python-software-properties
+OS=$(lsb_release -si)
+
+if [ "$OS" = "elementary" ]; then
+  echo -e "Adding a prereq"
+  sudo apt-get install -y software-properties-common python-software-properties
+  source ~/.bashrc
+fi
 
 echo -e "\nAdd some external sources"
 
@@ -40,6 +45,9 @@ sudo add-apt-repository ppa:openshot.developers/ppa
 
 # Sources for Ruby
 sudo apt-add-repository ppa:brightbox/ruby-ng
+
+# Sources for NodeJS 8
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 
 # Sources for Yarn
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -129,3 +137,36 @@ curl -o $HOME/bin/code.deb -L http://go.microsoft.com/fwlink/?LinkID=760868
 sudo dpkg -i $HOME/bin/code.deb
 sudo apt-get -f install
 rm -Rf $HOME/bin/code.deb
+
+if [ "$OS" = "elementary" ]; then
+  # Install dropbox
+  git clone https://github.com/zant95/elementary-dropbox /tmp/elementary-dropbox/tmp/elementary-dropbox/install.sh
+
+  # Lock on lid close
+  gsettings set apps.light-locker lock-on-lid true
+
+  # Set screenshot settings
+  gsettings set net.launchpad.screenshot format jpg
+
+  # Mouse Settings
+  gsettings set org.gnome.settings-daemon.peripherals.mouse locate-pointer true
+
+  # Battery Settings
+  gsettings set org.pantheon.desktop.wingpanel.indicators.power show-percentage true
+
+  # Pant Files Settings
+  gsettings set org.pantheon.files.preferences single-click false
+
+  # Scratch
+  gettings set org.pantheon.scratch.settings auto-indent true
+  gettings set org.pantheon.scratch.settings autosave false
+  gettings set org.pantheon.scratch.settings highlight-current-line true
+  gettings set org.pantheon.scratch.settings show-right-margin true
+
+  # Unsafe paste alert
+  gettings set org.pantheon.terminal.settings font "monofur for Powerline 16"
+  gettings set org.pantheon.terminal.settings remember-tabs false
+  gettings set org.pantheon.terminal.settings save-exited-tabs false
+  gettings set org.pantheon.terminal.settings tab-bar-behavior "Hide When Single Tab"
+  gettings set org.pantheon.terminal.settings unsafe-paste-alert false
+fi
