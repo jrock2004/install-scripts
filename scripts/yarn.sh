@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-sudo add \
-  bower \
+sudo yarn global add bower \
   browser-sync \
   csslint \
   diff-so-fancy \
@@ -26,5 +25,4 @@ sudo add \
   sass \
   tslint \
   typescript \
-  yarn \
   yo

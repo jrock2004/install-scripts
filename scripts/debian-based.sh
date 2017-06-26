@@ -104,7 +104,6 @@ sudo apt-get install ack-grep \
   vim \
   vim-scripts \
   virtualbox \
-  wget \
   xclip \
   yarn \
   zlibc \

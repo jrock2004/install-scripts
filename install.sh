@@ -115,4 +115,4 @@ elif ! [[ $SHELL =~ .*zsh.* ]]; then
   chsh -s $(which zsh)
 fi
 
-echo "Done. Close window and re-open to enjoy"
+echo -e "\nScript has completed. You can now delete the install scripts folder as its no longer needed"
