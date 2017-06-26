@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo -e "Adding a prereq"
+sudo apt-get install software-properties-common python-software-properties
+
 echo -e "\nAdd some external sources"
 
 # Sources for Neovim
