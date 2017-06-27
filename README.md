@@ -10,7 +10,6 @@ You will need to install the following before using this script
 - wget
 
 You will also want to make sure that your system is up-to-date before running this
-
 ## Before Running The Script
 Before you run the script there are a few things that you should know
 
@@ -32,3 +31,9 @@ $ ./install.sh
 
 Sit back and wait for any prompts that come up for you to accept
 and or handle
+
+## Coming soon
+Here are the list of things I want to add to
+
+- Support for Bash on Windows
+- Support for OSX
