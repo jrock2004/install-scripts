@@ -56,7 +56,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 # Lets updated so we can get new sources
 sudo apt-get update
 
-sudo apt-get install ack-grep \
+sudo apt-get -y install ack-grep \
   apt-transport-https \
   autoconf \
   bash-completion \
