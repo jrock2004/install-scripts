@@ -53,6 +53,10 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
+# Sources for Wine Development
+sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
+wget -nc https://dl.winehq.org/wine-builds/Release.key && sudo apt-key add Release.key
+
 # Lets updated so we can get new sources
 sudo apt-get update
 
@@ -113,6 +117,7 @@ sudo apt-get -y install ack-grep \
   vim \
   vim-scripts \
   virtualbox \
+  winehq-devel \
   xclip \
   yarn \
   zlibc \
@@ -132,6 +137,11 @@ curl -o $HOME/bin/code.deb -L http://go.microsoft.com/fwlink/?LinkID=760868
 sudo dpkg -i $HOME/bin/code.deb
 sudo apt-get -f install
 rm -Rf $HOME/bin/code.deb
+
+# Install Winetricks
+wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+chmod +x winetricks\
+sudo mv -v winetricks /usr/local/bin
 
 if [ "$OS" = "elementary" ]; then
   # Install dropbox
