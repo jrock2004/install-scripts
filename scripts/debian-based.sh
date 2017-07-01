@@ -85,6 +85,7 @@ sudo apt-get -y install ack-grep \
   neovim \
   nginx \
   ngrep \
+  nodejs \
   obs-studio \
   openshot-qt \
   openssl \
@@ -125,12 +126,6 @@ curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -
 sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb
 sudo apt-get -f install
 rm ~/Downloads/google-chrome*
-
-# Install slack
-curl https://downloads.slack-edge.com/linux_releases/slack-desktop-2.2.1-amd64.deb -o ~/Downloads/slack.deb
-sudo dpkg -i ~/Downloads/slack.deb
-sudo apt-get -f install
-rm ~/Downloads/slack.deb
 
 # Install Visual Studio code
 curl -o $HOME/bin/code.deb -L http://go.microsoft.com/fwlink/?LinkID=760868
