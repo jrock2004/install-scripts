@@ -29,10 +29,6 @@ echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sourc
 # Sources for OBS
 sudo apt-add-repository ppa:obsproject/obs-studio
 
-# Sources for Docker
-sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
-
 # Sources for Virtualbox
 wget -q -O - http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | sudo apt-key add -
 sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian xenial contrib" >> /etc/apt/sources.list.d/virtualbox.list'
@@ -70,8 +66,6 @@ sudo apt-get -y install ack-grep \
   clang \
   cmake \
   composer \
-  docker \
-  docker-compose \
   exuberant-ctags \
   ffmpeg \
   firefox-dev \
