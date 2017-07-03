@@ -73,6 +73,8 @@ sudo apt-get -y install ack-grep \
   irssi \
   irssi-scripts \
   libffi-dev \
+  libreadline-dev \
+  libssl-dev \
   libsqlite3-dev \
   libyaml-dev \
   linux-image-extra-$(uname -r) \
@@ -115,6 +117,7 @@ sudo apt-get -y install ack-grep \
   xclip \
   yarn \
   zlibc \
+  zlib1g-dev \
   zsh \
 
 source scripts/common.sh
