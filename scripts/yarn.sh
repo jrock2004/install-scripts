@@ -12,7 +12,7 @@ sudo yarn global add bower \
   git-standup \
   gulp \
   handlebars \
-  jade-lint \
+  pug-lint \
   jscs \
   jshint \
   jsonlint \
