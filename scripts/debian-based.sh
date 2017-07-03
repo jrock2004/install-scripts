@@ -140,7 +140,7 @@ rm -Rf $HOME/bin/code.deb
 
 # Install Winetricks
 wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
-chmod +x winetricks\
+chmod +x winetricks
 sudo mv -v winetricks /usr/local/bin
 
 if [ "$OS" = "elementary" ]; then
