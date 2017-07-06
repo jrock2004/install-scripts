@@ -53,6 +53,9 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
 wget -nc https://dl.winehq.org/wine-builds/Release.key && sudo apt-key add Release.key
 
+# Sources for Nvidia
+sudo add-apt-repository ppa:graphics-drivers/ppa
+
 # Lets updated so we can get new sources
 sudo apt-get update
 
