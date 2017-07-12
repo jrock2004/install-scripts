@@ -4,6 +4,7 @@ sudo yarn global add bower \
   browser-sync \
   csslint \
   diff-so-fancy \
+  ember-cli \
   ember-cli-azure-deploy \
   eslint \
   express-generator \
