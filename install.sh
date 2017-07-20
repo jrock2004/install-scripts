@@ -20,7 +20,13 @@ command_exists() {
 }
 
 # Get what OS/distro you are using
-OS=$(lsb_release -si)
+OS=''
+
+if ! command_exists `lsb_release -si`; then
+  OS='darwin'
+else
+  OS=$(lsb_release -si)
+fi
 
 ###################
 
@@ -44,6 +50,8 @@ if [[ ("$OS" = "Ubuntu") || ("$OS" = "elementary") ]]; then
   source scripts/debian-based.sh
 elif [ "$OS" = "Arch" ]; then
   source scripts/arch-based.sh
+elif [ "$OS" = "darwin" ]; then
+  source scripts/darwin.sh
 else
   echo -e "\nCould not detect OS/distro. Skipping app install"
 fi
