@@ -7,7 +7,11 @@ if [ ! -d ~/.composer ]; then
   mkdir ~/.composer
 fi
 
-sudo chown -R $USER:users $HOME/.composer
+if [ "$OS" = "darwin" ]; then
+  sudo chown -R $USER:staff $HOME/.composer
+else
+  sudo chown -R $USER:users $HOME/.composer
+fi
 
 # Link the composer.json file
 echo "{}" > $HOME/.composer/composer.json

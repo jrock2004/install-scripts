@@ -14,6 +14,7 @@ formulas=(
   dnsmasq
   fzf
   git
+  git-standup
   'grep --with-default-names'
   highlight
   hub
@@ -21,14 +22,14 @@ formulas=(
   neovim/neovim/neovim
   nginx
   reattach-to-user-namespace
+  ripgrep
   the_silver_searcher
   tmux
   tree
   wget
+  yarn
   z
   zsh
-  ripgrep
-  git-standup
 )
 
 for formula in "${formulas[@]}"; do
@@ -38,6 +39,9 @@ for formula in "${formulas[@]}"; do
     brew install $formula
   fi
 done
+
+# Setup fzf
+/usr/local/opt/fzf/install
 
 brew tap caskroom/versions
 
@@ -87,3 +91,8 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 echo "Kill affected applications"
 for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
+
+# Install rbenv
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+mkdir -p $HOME/.rbenv/plugins
+git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build

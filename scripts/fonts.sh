@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ "$OS" = "darwin" ]; then
-
+  echo 'Just install them yourself for now!!!!!'
 else
   ### FiraCode
   git clone https://github.com/tonsky/FiraCode.git $HOME/bin/fira

@@ -22,7 +22,7 @@ command_exists() {
 # Get what OS/distro you are using
 OS=''
 
-if ! command_exists `lsb_release -si`; then
+if ! command_exists lsb_release; then
   OS='darwin'
 else
   OS=$(lsb_release -si)
