@@ -99,6 +99,7 @@ sudo apt-get -y install ack-grep \
   php-sqlite3 \
   php-xml \
   php-zip \
+  plymouth-x11 \
   powertop \
   python-dev \
   python-pip \

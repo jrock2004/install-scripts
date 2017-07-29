@@ -26,3 +26,6 @@ sudo yarn global add bower \
   tslint \
   typescript \
   yo
+
+# Fix permissions on config dir
+sudo chown -R $USER $HOME/.config

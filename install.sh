@@ -38,7 +38,11 @@ mkdir -p $DOWNLOADS
 
 # Lets pull in my dotfiles
 echo -e "\nGrabbing dotfiles and putting them into ~/.dotfiles"
-git clone $DOTFILESGITHUB $HOME/.dotfiles
+if [ "$OS" = "darwin" ]; then
+  git clone -b mac $DOTFILESGITHUB $HOME/.dotfiles
+else
+  git clone $DOTFILESGITHUB $HOME/.dotfiles
+fi
 
 # Symlink from .dotfiles to your home directory
 echo -e "Symlinking files and folders from dotfiles to home directory"
