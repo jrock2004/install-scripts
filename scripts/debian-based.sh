@@ -62,6 +62,7 @@ sudo apt-get update
 sudo apt-get -y install ack-grep \
   apt-transport-https \
   autoconf \
+  automake \
   bash-completion \
   bison \
   build-essential \
@@ -79,6 +80,7 @@ sudo apt-get -y install ack-grep \
   libreadline-dev \
   libssl-dev \
   libsqlite3-dev \
+  libtool \
   libyaml-dev \
   linux-image-extra-$(uname -r) \
   linux-image-extra-virtual \
