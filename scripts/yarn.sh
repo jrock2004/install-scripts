@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-sudo yarn global add bower \
+sudo yarn global add \
+  all-the-packages-names \
+  bower \
   browser-sync \
   csslint \
   diff-so-fancy \

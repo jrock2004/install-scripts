@@ -104,7 +104,10 @@ sudo apt-get -y install ack-grep \
   plymouth-x11 \
   powertop \
   python-dev \
+  python-gtk2 \
+  python-diskutils-extra \
   python-pip \
+  python-setuptools \
   python3-dev \
   python3-pip \
   ruby2.3 \
