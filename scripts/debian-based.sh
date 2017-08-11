@@ -26,21 +26,12 @@ echo "deb http://download.mono-project.com/repo/debian xenial main" | sudo tee /
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 
-# Sources for OBS
-sudo apt-add-repository ppa:obsproject/obs-studio
-
 # Sources for Virtualbox
 wget -q -O - http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | sudo apt-key add -
 sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian zesty contrib" >> /etc/apt/sources.list.d/virtualbox.list'
 
 # Sources for Neofetch
 sudo add-apt-repository ppa:dawidd0811/neofetch
-
-# Sources for Openshot
-sudo add-apt-repository ppa:openshot.developers/ppa
-
-# Sources for Ruby
-sudo apt-add-repository ppa:brightbox/ruby-ng
 
 # Sources for NodeJS 8
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
