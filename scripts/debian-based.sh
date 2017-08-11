@@ -59,7 +59,7 @@ sudo add-apt-repository ppa:graphics-drivers/ppa
 # Lets updated so we can get new sources
 sudo apt-get update
 
-sudo apt-get -y install ack-grep \
+sudo apt-get -y install \
   apt-transport-https \
   autoconf \
   automake \
@@ -92,7 +92,7 @@ sudo apt-get -y install ack-grep \
   ngrep \
   nodejs \
   obs-studio \
-  openshot-qt \
+  openshot \
   openssl \
   php-cli \
   php-mbstring \
@@ -122,7 +122,7 @@ sudo apt-get -y install ack-grep \
   vim \
   vim-scripts \
   virtualbox \
-  winehq-devel \
+  wine-development \
   xclip \
   yarn \
   zlibc \
