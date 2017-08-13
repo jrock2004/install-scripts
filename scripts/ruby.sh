@@ -7,6 +7,4 @@ $HOME/.rbenv/bin/rbenv global 2.3.4
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 
 echo "Installing some Gems"
-$HOME/.rbenv/shims/gem install bundler
-$HOME/.rbenv/shims/gem install scss_lint
-$HOME/.rbenv/shims/gem install neovim
+$HOME/.rbenv/shims/gem install bundler scss_lint neovim
