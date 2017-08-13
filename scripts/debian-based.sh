@@ -82,7 +82,6 @@ sudo apt-get -y install \
   nginx \
   ngrep \
   nodejs \
-  npm \
   obs-studio \
   openshot \
   openssl \
@@ -97,7 +96,6 @@ sudo apt-get -y install \
   powertop \
   python-dev \
   python-gtk2 \
-  python-diskutils-extra \
   python-pip \
   python-setuptools \
   python3-dev \
@@ -119,7 +117,7 @@ sudo apt-get -y install \
   yarn \
   zlibc \
   zlib1g-dev \
-  zsh \
+  zsh
 
 source scripts/common.sh
 
