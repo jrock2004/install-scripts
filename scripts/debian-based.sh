@@ -82,6 +82,7 @@ sudo apt-get -y install \
   nginx \
   ngrep \
   nodejs \
+  npm \
   obs-studio \
   openshot \
   openssl \
