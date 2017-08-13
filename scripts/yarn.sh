@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo yarn global add \
-  all-the-packages-names \
+  all-the-package-names \
   bower \
   browser-sync \
   csslint \
