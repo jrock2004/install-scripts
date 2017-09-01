@@ -47,6 +47,11 @@ wget -nc https://dl.winehq.org/wine-builds/Release.key && sudo apt-key add Relea
 # Sources for Nvidia
 sudo add-apt-repository ppa:graphics-drivers/ppa
 
+# Sources for VS Code
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
 # Lets updated so we can get new sources
 sudo apt-get update
 
@@ -60,6 +65,7 @@ sudo apt-get -y install \
   ca-certificates \
   clang \
   cmake \
+  code \
   composer \
   exuberant-ctags \
   ffmpeg \
@@ -127,12 +133,6 @@ curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -
 sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb
 sudo apt-get -f install
 rm ~/Downloads/google-chrome*
-
-# Install Visual Studio code
-curl -o $HOME/bin/code.deb -L http://go.microsoft.com/fwlink/?LinkID=760868
-sudo dpkg -i $HOME/bin/code.deb
-sudo apt-get -f install
-rm -Rf $HOME/bin/code.deb
 
 # Install Winetricks
 wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
