@@ -22,11 +22,20 @@ command_exists() {
 # Get what OS/distro you are using
 OS=''
 
-if ! command_exists lsb_release; then
-  OS='darwin'
-else
+if command_exists lsb_release; then
   OS=$(lsb_release -si)
+elif [ -f /etc/os-release ]; then
+  . /etc/os-release
+  OS=$ID
+else
+  OS='darwin'
 fi
+
+#if ! command_exists lsb_release; then
+#  OS='darwin'
+#else
+#  OS=$(lsb_release -si)
+#fi
 
 ###################
 
@@ -52,7 +61,7 @@ source scripts/link.sh
 echo -e "Trying to install some apps"
 if [[ ("$OS" = "Ubuntu") || ("$OS" = "elementary") ]]; then
   source scripts/debian-based.sh
-elif [ "$OS" = "Arch" ]; then
+elif [[ ("$OS" = "Arch") || ("$OS" = "antergos") ]]; then
   source scripts/arch-based.sh
 elif [ "$OS" = "darwin" ]; then
   source scripts/darwin.sh
