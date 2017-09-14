@@ -2,12 +2,6 @@
 
 OS=$(lsb_release -si)
 
-if [ "$OS" = "elementary" ]; then
-  echo -e "Adding a prereq"
-  sudo apt-get install -y software-properties-common python-software-properties
-  source ~/.bashrc
-fi
-
 echo -e "\nAdd some external sources"
 
 # Sources for Neovim
@@ -141,36 +135,3 @@ rm ~/Downloads/google-chrome*
 wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
 sudo mv -v winetricks /usr/local/bin
-
-if [ "$OS" = "elementary" ]; then
-  # Install dropbox
-  git clone https://github.com/zant95/elementary-dropbox /tmp/elementary-dropbox/tmp/elementary-dropbox/install.sh
-
-  # Lock on lid close
-  gsettings set apps.light-locker lock-on-lid true
-
-  # Set screenshot settings
-  gsettings set net.launchpad.screenshot format jpg
-
-  # Mouse Settings
-  gsettings set org.gnome.settings-daemon.peripherals.mouse locate-pointer true
-
-  # Battery Settings
-  gsettings set org.pantheon.desktop.wingpanel.indicators.power show-percentage true
-
-  # Pant Files Settings
-  gsettings set org.pantheon.files.preferences single-click false
-
-  # Scratch
-  gettings set org.pantheon.scratch.settings auto-indent true
-  gettings set org.pantheon.scratch.settings autosave false
-  gettings set org.pantheon.scratch.settings highlight-current-line true
-  gettings set org.pantheon.scratch.settings show-right-margin true
-
-  # Unsafe paste alert
-  gettings set org.pantheon.terminal.settings font "monofur for Powerline 16"
-  gettings set org.pantheon.terminal.settings remember-tabs false
-  gettings set org.pantheon.terminal.settings save-exited-tabs false
-  gettings set org.pantheon.terminal.settings tab-bar-behavior "Hide When Single Tab"
-  gettings set org.pantheon.terminal.settings unsafe-paste-alert false
-fi
