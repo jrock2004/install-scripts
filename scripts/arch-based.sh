@@ -10,7 +10,7 @@ gpg --recv-keys --keyserver hkp://pgp.mit.edu D9C4D26D0E604491
 gpg --recv-keys --keyserver hkp://pgp.mit.edu 5CC908FDB71E12C2
 
 yaourt -Sy spotify silver-searcher-git visual-studio-code dropbox \
-nautilus-dropbox libopenssl-1.0-compat libcurl-openssl-1.0 lib32-libldap \
-lib32-gnutls chrom-gnome-shell-git
+nautilus-dropbox libcurl-openssl-1.0 lib32-libldap \
+lib32-gnutls chrome-gnome-shell-git
 
 source scripts/common.sh
