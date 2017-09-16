@@ -9,8 +9,19 @@ libffi libyaml openssl zlib composer clang powertop tlp yarn
 gpg --recv-keys --keyserver hkp://pgp.mit.edu D9C4D26D0E604491
 gpg --recv-keys --keyserver hkp://pgp.mit.edu 5CC908FDB71E12C2
 
-yaourt -Sy spotify silver-searcher-git visual-studio-code dropbox \
-nautilus-dropbox libcurl-openssl-1.0 lib32-libldap \
-lib32-gnutls chrome-gnome-shell-git
+yaourt -Sy \
+  chrome-gnome-shell-git \
+  dropbox \
+  lib32-gnutls \
+  lib32-libldap \
+  libcurl-openssl-1.0 \
+  libtinfo \
+  nautilus-dropbox \
+  silver-searcher-git \
+  spotify \
+  visual-studio-code
+
+# This is a fix to get version 5 for Ycm
+sudo ln -s /usr/lib/libtinfo.so /usr/lib/libtinfo.so.5
 
 source scripts/common.sh
