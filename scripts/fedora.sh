@@ -25,6 +25,8 @@ sudo dnf -y install \
  autoconf \
  automake \
  bison \
+ cabextract \
+ chrome-gnome-shell \
  clang \
  cmake \
  code \
@@ -33,6 +35,7 @@ sudo dnf -y install \
  docker \
  docker-compose \
  dotnet-sdk-2.0.0 \
+ dropbox \
  ffmpeg \
  gcc \
  irssi \
@@ -41,6 +44,7 @@ sudo dnf -y install \
  libtool \
  libyaml \
  mono-devel \
+ nautilus-dropbox \
  neovim \
  ngrep \
  nodejs \
@@ -48,6 +52,8 @@ sudo dnf -y install \
  openshot \
  php-mcrypt \
  powertop \
+ python-devel \
+ python3-devel \
  ruby \
  spotify-client \
  sqlite \
