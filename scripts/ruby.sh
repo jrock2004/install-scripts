@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-# Setup ruby
-$HOME/.rbenv/bin/rbenv install 2.3.4
-$HOME/.rbenv/bin/rbenv global 2.3.4
+if [ "$OS" != "fedora" ]; then
+  # Setup ruby
+  $HOME/.rbenv/bin/rbenv install 2.3.4
+  $HOME/.rbenv/bin/rbenv global 2.3.4
 
-echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+  echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 
-echo "Installing some Gems"
-$HOME/.rbenv/shims/gem install bundler scss_lint neovim
+  echo "Installing some Gems"
+  $HOME/.rbenv/shims/gem install bundler scss_lint neovim
+fi

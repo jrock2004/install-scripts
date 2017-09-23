@@ -31,12 +31,6 @@ else
   OS='darwin'
 fi
 
-#if ! command_exists lsb_release; then
-#  OS='darwin'
-#else
-#  OS=$(lsb_release -si)
-#fi
-
 ###################
 
 # Create some directories
@@ -65,13 +59,17 @@ elif [[ ("$OS" = "Arch") || ("$OS" = "antergos") ]]; then
   source scripts/arch-based.sh
 elif [ "$OS" = "darwin" ]; then
   source scripts/darwin.sh
+elif [ "$OS" = "fedora" ]; then
+    source scripts/fedora.sh
 else
   echo -e "\nCould not detect OS/distro. Skipping app install"
 fi
 
 # Installing some python modules
 echo -e "Installing needed python modules"
-source scripts/python.sh
+if [ "$OS" != "fedora" ]; then
+  source scripts/python.sh
+fi
 
 # Installing Node Apps
 echo -e "Installing global node apps via yarn"
