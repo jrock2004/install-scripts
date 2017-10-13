@@ -18,6 +18,9 @@ sudo dnf config-manager --add-repo=https://negativo17.org/repos/fedora-spotify.r
 # Sources for Yarn
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 
+# Sources for Docker
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+
 # Lets updated so we can use the new sources
 sudo dnf check-update
 
@@ -32,8 +35,7 @@ sudo dnf -y install \
  code \
  composer \
  ctags \
- docker \
- docker-compose \
+ docker-ce \
  dotnet-sdk-2.0.0 \
  dropbox \
  ffmpeg \
