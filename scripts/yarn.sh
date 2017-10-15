@@ -22,7 +22,6 @@ sudo yarn global add \
   jsxhint \
   less \
   nodemon \
-  phplint \
   preact-cli \
   sass \
   tslint \

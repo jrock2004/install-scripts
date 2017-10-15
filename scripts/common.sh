@@ -7,13 +7,6 @@ $HOME/.fzf/install
 # Setup groups
 sudo usermod -aG docker $USER
 
-if [ "$OS" != "fedora" ]; then
-  # Install rbenv
-  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-  mkdir -p $HOME/.rbenv/plugins
-  git clone https://github.com/rbenv/ruby-build.git $HOME/.rbenv/plugins/ruby-build
-fi
-
 # Get Tmux spotify client
 sudo curl https://raw.githubusercontent.com/jrock2004/tmux-spotify/master/tmux-spotify -o /usr/local/bin/tmux-spotify
 

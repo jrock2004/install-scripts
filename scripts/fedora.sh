@@ -33,7 +33,6 @@ sudo dnf -y install \
  clang \
  cmake \
  code \
- composer \
  ctags \
  docker-ce \
  dotnet-sdk-2.0.0 \
@@ -52,18 +51,15 @@ sudo dnf -y install \
  nodejs \
  obs-studio \
  openshot \
- php-mcrypt \
  powertop \
  python-devel \
  python3-devel \
  ruby \
  spotify-client \
- sqlite \
  the_silver_searcher \
  tmux \
  tlp \
  vim \
- VirtualBox \
  wine \
  xclip \
  yarn \
