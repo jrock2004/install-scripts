@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-if [ "$OS" = "darwin" ]; then
-  sudo easy_install pip
-fi
-
 pip install --upgrade pip
 
 pip install --user neovim
