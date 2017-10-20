@@ -6,7 +6,6 @@
 
 EMAIL="jrock2004@gmail.com"
 DEVFOLDER="$HOME/Development"
-DOWNLOADS="$HOME/Downloads"
 BIN="$HOME/bin"
 DOTFILESGITHUB="https://github.com/jrock2004/dotfiles.git"
 
@@ -19,33 +18,16 @@ command_exists() {
   type "$1" > /dev/null 2>&1
 }
 
-# Get what OS/distro you are using
-OS=''
-
-if command_exists lsb_release; then
-  OS=$(lsb_release -si)
-elif [ -f /etc/os-release ]; then
-  . /etc/os-release
-  OS=$ID
-else
-  OS='darwin'
-fi
-
 ###################
 
 # Create some directories
 echo -e "\n Creating some default directories that we will be using"
 mkdir -p $DEVFOLDER
 mkdir -p $BIN
-mkdir -p $DOWNLOADS
 
 # Lets pull in my dotfiles
 echo -e "\nGrabbing dotfiles and putting them into ~/.dotfiles"
-if [ "$OS" = "darwin" ]; then
-  git clone -b mac $DOTFILESGITHUB $HOME/.dotfiles
-else
-  git clone $DOTFILESGITHUB $HOME/.dotfiles
-fi
+git clone $DOTFILESGITHUB $HOME/.dotfiles
 
 # Symlink from .dotfiles to your home directory
 echo -e "Symlinking files and folders from dotfiles to home directory"
@@ -53,23 +35,7 @@ source scripts/link.sh
 
 # Installing the apps that are needed
 echo -e "Trying to install some apps"
-if [[ ("$OS" = "Ubuntu") || ("$OS" = "elementary") ]]; then
-  source scripts/debian-based.sh
-elif [[ ("$OS" = "Arch") || ("$OS" = "antergos") ]]; then
-  source scripts/arch-based.sh
-elif [ "$OS" = "darwin" ]; then
-  source scripts/darwin.sh
-elif [ "$OS" = "fedora" ]; then
-    source scripts/fedora.sh
-else
-  echo -e "\nCould not detect OS/distro. Skipping app install"
-fi
-
-# Installing some python modules
-echo -e "Installing needed python modules"
-if [ "$OS" != "fedora" ]; then
-  source scripts/python.sh
-fi
+source scripts/debian-based.sh
 
 # Installing Node Apps
 echo -e "Installing global node apps via yarn"
@@ -78,19 +44,6 @@ source scripts/yarn.sh
 # Installing Ruby stuff
 echo -e "Installing ruby and some needed dependencies"
 source scripts/ruby.sh
-
-# Installing Fonts
-echo -e "Installing some global fonts that I like to use"
-source scripts/fonts.sh
-
-# Installing PHP stuff
-echo -e "Installing composer"
-source scripts/php.sh
-
-# installing resource files
-echo -e "Adding some TERMINFO support for the terminal"
-tic $HOME/.dotfiles/resources/xterm-256color-italic.terminfo
-tic $HOME/.dotfiles/resources/tmux-256color-italic.terminfo
 
 # Setup SSH key if needed
 echo -e "Setting up an SSH key to use for github"
