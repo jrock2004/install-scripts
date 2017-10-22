@@ -20,10 +20,6 @@ echo "deb http://download.mono-project.com/repo/debian xenial main" | sudo tee /
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 
-# Sources for Virtualbox
-wget -q -O - http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | sudo apt-key add -
-sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian zesty contrib" >> /etc/apt/sources.list.d/virtualbox.list'
-
 # Sources for Neofetch
 sudo add-apt-repository ppa:dawidd0811/neofetch
 
@@ -39,7 +35,7 @@ sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
 wget -nc https://dl.winehq.org/wine-builds/Release.key && sudo apt-key add Release.key
 
 # Sources for Nvidia
-sudo add-apt-repository ppa:graphics-drivers/ppa
+# sudo add-apt-repository ppa:graphics-drivers/ppa
 
 # Sources for VS Code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -63,7 +59,6 @@ sudo apt-get -y install \
   clang \
   cmake \
   code \
-  composer \
   exuberant-ctags \
   ffmpeg \
   firefox-dev \
@@ -76,27 +71,16 @@ sudo apt-get -y install \
   libsqlite3-dev \
   libtool \
   libyaml-dev \
-  linux-image-extra-$(uname -r) \
-  linux-image-extra-virtual \
   markdown \
   mono-complete \
   neofetch \
   neovim \
-  nginx \
   ngrep \
   nodejs \
   obs-studio \
   openshot \
   openssl \
-  php-cli \
-  php-mbstring \
-  php-mcrypt \
-  php-mysql \
-  php-sqlite3 \
-  php-xml \
-  php-zip \
   plymouth-x11 \
-  powertop \
   python-dev \
   python-gtk2 \
   python-pip \
@@ -107,14 +91,11 @@ sudo apt-get -y install \
   ruby2.3-dev \
   silversearcher-ag \
   spotify-client \
-  sqlite3 \
   tmux \
   tree \
-  tlp \
   unzip \
   vim \
   vim-scripts \
-  virtualbox \
   wine-development \
   xclip \
   yarn \
