@@ -2,12 +2,10 @@
 
 sudo yarn global add \
   all-the-package-names \
-<<<<<<< HEAD
   csslint \
   diff-so-fancy \
   eslint \
   git-standup \
-=======
   browser-sync \
   csslint \
   diff-so-fancy \
@@ -17,16 +15,12 @@ sudo yarn global add \
   firebase-tools \
   generator-aspnet \
   pug-lint \
->>>>>>> old
   jscs \
   jshint \
   jsonlint \
   jsxhint \
-<<<<<<< HEAD
-=======
   preact-cli \
   sass \
->>>>>>> old
   tslint \
   typescript
 
