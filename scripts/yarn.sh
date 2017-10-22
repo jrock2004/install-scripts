@@ -2,26 +2,19 @@
 
 sudo yarn global add \
   all-the-package-names \
-  bower \
   browser-sync \
   csslint \
   diff-so-fancy \
   ember-cli \
-  ember-cli-azure-deploy \
   eslint \
   express-generator \
   firebase-tools \
   generator-aspnet \
-  git-standup \
-  gulp \
-  handlebars \
   pug-lint \
   jscs \
   jshint \
   jsonlint \
   jsxhint \
-  less \
-  nodemon \
   preact-cli \
   sass \
   tslint \
