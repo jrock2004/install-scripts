@@ -9,17 +9,12 @@ sudo yarn global add \
   browser-sync \
   csslint \
   diff-so-fancy \
-  ember-cli \
   eslint \
-  express-generator \
-  firebase-tools \
-  generator-aspnet \
   pug-lint \
   jscs \
   jshint \
   jsonlint \
   jsxhint \
-  preact-cli \
   sass \
   tslint \
   typescript

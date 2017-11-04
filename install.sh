@@ -8,6 +8,7 @@ EMAIL="jrock2004@gmail.com"
 DEVFOLDER="$HOME/Development"
 BIN="$HOME/bin"
 DOTFILESGITHUB="https://github.com/jrock2004/dotfiles.git"
+OS=''
 
 ###################
 
@@ -18,24 +19,39 @@ command_exists() {
   type "$1" > /dev/null 2>&1
 }
 
+# Check to see if this WSL
+if grep -q Microsoft /proc/sys/kernel/osrelease; then
+  OS='microsoft'
+fi
 ###################
 
 # Create some directories
 echo -e "\n Creating some default directories that we will be using"
-mkdir -p $DEVFOLDER
 mkdir -p $BIN
+
+if [ "$OS" = "microsoft" ]; then
+  ln -s /mnt/c/Development $DEVFOLDER
+else
+  mkdir $HOME/Development
+fi
 
 # Lets pull in my dotfiles
 echo -e "\nGrabbing dotfiles and putting them into ~/.dotfiles"
 git clone $DOTFILESGITHUB $HOME/.dotfiles
 
+# Installing the apps that are needed
+if [[ ("$OS" = "microsoft") || ("$OS" = "Ubuntu") || ("$OS" = "elementary") ]]; then
+  source scripts/debian-based.sh
+elif [ "$OS" = "darwin" ]; then
+  source scripts/darwin.sh
+else
+  echo -e "\nCould not detect OS/distro. Stopping execution"
+  exit 0
+fi
+
 # Symlink from .dotfiles to your home directory
 echo -e "Symlinking files and folders from dotfiles to home directory"
 source scripts/link.sh
-
-# Installing the apps that are needed
-echo -e "Trying to install some apps"
-source scripts/debian-based.sh
 
 # Installing Node Apps
 echo -e "Installing global node apps via yarn"
