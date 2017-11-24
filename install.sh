@@ -22,7 +22,17 @@ command_exists() {
 # Check to see if this WSL
 if grep -q Microsoft /proc/sys/kernel/osrelease; then
   OS='microsoft'
+elif command_exists lsb_release; then
+  OS=$(lsb_release -si)
+elif [ -f /etc/os-release ]; then
+  . /etc/os-release
+  OS=$ID
+else
+  OS='darwin'
 fi
+
+echo $OS
+
 ###################
 
 # Create some directories
@@ -32,7 +42,7 @@ mkdir -p $BIN
 if [ "$OS" = "microsoft" ]; then
   ln -s /mnt/c/Development $DEVFOLDER
 else
-  mkdir $HOME/Development
+  mkdir -p $DEVFOLDER
 fi
 
 # Lets pull in my dotfiles
@@ -40,10 +50,8 @@ echo -e "\nGrabbing dotfiles and putting them into ~/.dotfiles"
 git clone $DOTFILESGITHUB $HOME/.dotfiles
 
 # Installing the apps that are needed
-if [[ ("$OS" = "microsoft") || ("$OS" = "Ubuntu") || ("$OS" = "elementary") ]]; then
-  source scripts/debian-based.sh
-elif [ "$OS" = "darwin" ]; then
-  source scripts/darwin.sh
+if [ "$OS" = "fedora" ]; then
+  source scripts/fedora.sh
 else
   echo -e "\nCould not detect OS/distro. Stopping execution"
   exit 0
@@ -53,13 +61,11 @@ fi
 echo -e "Symlinking files and folders from dotfiles to home directory"
 source scripts/link.sh
 
+source scripts/fonts.sh
+
 # Installing Node Apps
 echo -e "Installing global node apps via yarn"
 source scripts/yarn.sh
-
-# Installing Ruby stuff
-echo -e "Installing ruby and some needed dependencies"
-source scripts/ruby.sh
 
 # Setup SSH key if needed
 echo -e "Setting up an SSH key to use for github"
@@ -89,7 +95,7 @@ fi
 
 if ! command_exists zplug; then
   echo "installing zplug, a plugin manager for zsh - http://zplug.sh"
-  # curl -sL zplug.sh/installer | zsh
+  curl -sL zplug.sh/installer | zsh
   git clone https://github.com/zplug/zplug.git ~/.zplug
 fi
 
@@ -100,7 +106,7 @@ if ! command_exists zsh; then
   exit 1
 elif ! [[ $SHELL =~ .*zsh.* ]]; then
   echo "Configuring zsh as default shell"
-  chsh -s $(which zsh)
+  sudo usermod -s $(which zsh) $(whoami)
 fi
 
 echo -e "\nScript has completed. You can now delete the install scripts folder as its no longer needed"
