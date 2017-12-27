@@ -39,7 +39,9 @@ sudo dnf -y install \
   obs-studio \
   openshot \
   python-devel \
+  python2-neovim \
   python3-devel \
+  python3-neovim \
   rubygems \
   spotify-client \
   the_silver_searcher \
