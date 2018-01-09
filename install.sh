@@ -52,6 +52,8 @@ git clone $DOTFILESGITHUB $HOME/.dotfiles
 # Installing the apps that are needed
 if [ "$OS" = "fedora" ]; then
   source scripts/fedora.sh
+elif [ command_exists lsb_release ]; then
+  OS=$(lsb_release -si)
 else
   echo -e "\nCould not detect OS/distro. Stopping execution"
   exit 0
