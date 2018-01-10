@@ -31,8 +31,6 @@ else
   OS='darwin'
 fi
 
-echo $OS
-
 ###################
 
 # Create some directories
@@ -52,8 +50,8 @@ git clone $DOTFILESGITHUB $HOME/.dotfiles
 # Installing the apps that are needed
 if [ "$OS" = "fedora" ]; then
   source scripts/fedora.sh
-elif [ command_exists lsb_release ]; then
-  OS=$(lsb_release -si)
+elif [ "$OS" = "Ubuntu" ]; then
+  source scripts/debian.sh
 else
   echo -e "\nCould not detect OS/distro. Stopping execution"
   exit 0

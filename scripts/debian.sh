@@ -24,7 +24,7 @@ sudo apt-get -y install \
   chrome-gnome-shell \
   cmake \
   code \
-  ctags \
+  exuberant-ctags \
   gcc \
   mono-devel \
   neovim \
@@ -38,7 +38,7 @@ sudo apt-get -y install \
   silversearcher-ag \
   tmux \
   vim \
-  wine \
+  wine-development \
   xclip \
   yarn \
   zsh
