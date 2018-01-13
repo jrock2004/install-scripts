@@ -95,8 +95,7 @@ fi
 
 if ! command_exists zplug; then
   echo "installing zplug, a plugin manager for zsh - http://zplug.sh"
-  curl -sL zplug.sh/installer | zsh
-  git clone https://github.com/zplug/zplug.git ~/.zplug
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 fi
 
 # Setting env to zsh instead of bash

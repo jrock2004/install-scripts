@@ -43,6 +43,8 @@ sudo apt-get -y install \
   yarn \
   zsh
 
+source scripts/common.sh
+
 # Install Winetricks
 wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
