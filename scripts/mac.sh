@@ -11,7 +11,6 @@ formulas=(
   'macvim --with-override-system-vim'
   ack
   diff-so-fancy
-  fzf
   git
   'grep --with-default-names'
   neovim/neovim/neovim
@@ -81,3 +80,6 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 echo "Kill affected applications"
 for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
 
+# Install some extra tools
+git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+$HOME/.fzf/install
