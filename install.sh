@@ -19,19 +19,33 @@ command_exists() {
   type "$1" > /dev/null 2>&1
 }
 
-# Check to see if this WSL
-if grep -q Microsoft /proc/sys/kernel/osrelease; then
-  OS='microsoft'
-elif command_exists lsb_release; then
-  OS=$(lsb_release -si)
-elif [ -f /etc/os-release ]; then
-  . /etc/os-release
-  OS=$ID
-else
-  OS='darwin'
-fi
-
 ###################
+
+# Ask the user what OS they are running instead of trying to guess
+PS3='Which OS are you running: '
+options=("Ubuntu/Debian" "Fedora" "Bash on Windows" "Quit")
+select opt in "${options[@]}"
+do
+  case $opt in
+    "Ubuntu/Debian")
+      OS='debian'
+      break
+      ;;
+    "Fedora")
+      OS='fedora'
+      break
+      ;;
+    "Bash on Windows")
+      OS='microsoft'
+      break
+      ;;
+    "Quit")
+      exit 0
+      break
+      ;;
+    *) echo invalid option;;
+  esac
+done
 
 # Create some directories
 echo -e "\n Creating some default directories that we will be using"
