@@ -19,34 +19,55 @@ sudo apt-get update
 
 # Installing some apps
 ###############################
-sudo apt-get -y install \
-  cabextract \
-  chrome-gnome-shell \
-  cmake \
-  code \
-  exuberant-ctags \
-  gcc \
-  mono-devel \
-  neovim \
-  ngrep \
-  nodejs \
-  obs-studio \
-  openshot \
-  python-dev \
-  python3-dev \
-  ruby2.3 \
-  silversearcher-ag \
-  tmux \
-  vim \
-  wine-development \
-  xclip \
-  yarn \
-  zsh
+
+if [ "$OS" = "microsoft" ]; then
+  sudo apt-get -y install \
+    cabextract \
+    cmake \
+    exuberant-ctags \
+    gcc \
+    mono-devel \
+    ngrep \
+    nodejs \
+    python-dev \
+    python3-dev \
+    ruby2.3 \
+    silversearcher-ag \
+    tmux \
+    vim \
+    xclip \
+    yarn \
+    zsh
+else
+  sudo apt-get -y install \
+    cabextract \
+    chrome-gnome-shell \
+    cmake \
+    code \
+    exuberant-ctags \
+    gcc \
+    mono-devel \
+    neovim \
+    ngrep \
+    nodejs \
+    obs-studio \
+    openshot \
+    python-dev \
+    python3-dev \
+    ruby2.3 \
+    silversearcher-ag \
+    tmux \
+    vim \
+    wine-development \
+    xclip \
+    yarn \
+    zsh
+
+  # Install Winetricks
+  wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+  chmod +x winetricks
+  sudo mv -v winetricks /usr/local/bin
+fi
 
 source scripts/common.sh
-
-# Install Winetricks
-wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
-chmod +x winetricks
-sudo mv -v winetricks /usr/local/bin
 
