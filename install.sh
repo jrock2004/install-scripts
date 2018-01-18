@@ -64,7 +64,7 @@ git clone $DOTFILESGITHUB $HOME/.dotfiles
 # Installing the apps that are needed
 if [ "$OS" = "fedora" ]; then
   source scripts/fedora.sh
-elif [ [ "$OS" = "debian" ] || [ "$OS" = "microsoft" ] ]; then
+elif [[ ("$OS" = "debian") || ("$OS" = "microsoft") ]]; then
   source scripts/debian.sh
 else
   echo -e "\nCould not detect OS/distro. Stopping execution"
