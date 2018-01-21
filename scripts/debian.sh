@@ -23,55 +23,39 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 # Installing some apps
 ###############################
 
+sudo apt-get -y install \
+  cabextract \
+  cmake \
+  exuberant-ctags \
+  gcc \
+  mono-devel \
+  neovim \
+  ngrep \
+  nodejs \
+  python-dev \
+  python-pip \
+  python3-dev \
+  python3-pip \
+  ruby2.3 \
+  silversearcher-ag \
+  tmux \
+  vim \
+  xclip \
+  yarn \
+  zsh
+
+
 if [ "$OS" = "microsoft" ]; then
-  sudo apt-get -y install \
-    cabextract \
-    cmake \
-    exuberant-ctags \
-    gcc \
-    mono-devel \
-    neovim \
-    ngrep \
-    nodejs \
-    python-dev \
-    python-pip \
-    python3-dev \
-    python3-pip \
-    ruby2.3 \
-    silversearcher-ag \
-    tmux \
-    vim \
-    xclip \
-    yarn \
-    zsh
-   
   pip install --upgrade pip
   pip install --user --upgrade neovim
   pip3 install --user --upgrade neovim
 else
   sudo apt-get -y install \
-    cabextract \
     chrome-gnome-shell \
-    cmake \
     code \
-    exuberant-ctags \
-    gcc \
-    mono-devel \
-    neovim \
-    ngrep \
-    nodejs \
     obs-studio \
     openshot \
-    python-dev \
-    python3-dev \
-    ruby2.3 \
-    silversearcher-ag \
-    tmux \
-    vim \
-    wine-development \
-    xclip \
-    yarn \
-    zsh
+    wine-development
 
   # Install Winetricks
   wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
