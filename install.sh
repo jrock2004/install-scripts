@@ -23,12 +23,16 @@ command_exists() {
 
 # Ask the user what OS they are running instead of trying to guess
 PS3='Which OS are you running: '
-options=("Ubuntu/Debian" "Fedora" "Bash on Windows" "Apple" "Quit")
+options=("Ubuntu/Debian" "Arch" "Fedora" "Bash on Windows" "Apple" "Quit")
 select opt in "${options[@]}"
 do
   case $opt in
     "Ubuntu/Debian")
       OS='debian'
+      break
+      ;;
+    "Arch")
+      OS='arch'
       break
       ;;
     "Fedora")
@@ -70,6 +74,8 @@ if [ "$OS" = "fedora" ]; then
   source scripts/fedora.sh
 elif [[ ("$OS" = "debian") || ("$OS" = "microsoft") ]]; then
   source scripts/debian.sh
+elif [ "$OS" = "arch" ]; then
+  source scripts/arch.sh
 elif [ "$OS" = "mac" ]; then
   source scripts/mac.sh
 else
