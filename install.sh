@@ -23,7 +23,7 @@ command_exists() {
 
 # Ask the user what OS they are running instead of trying to guess
 PS3='Which OS are you running: '
-options=("Ubuntu/Debian" "Arch" "Fedora" "Bash on Windows" "Apple" "Quit")
+options=("Ubuntu/Debian" "Arch" "Fedora" "Bash on Windows" "Apple" "Solus" "Quit")
 select opt in "${options[@]}"
 do
   case $opt in
@@ -45,6 +45,10 @@ do
       ;;
     "Apple")
         OS='mac'
+        break
+        ;;
+    "Solus")
+        OS='solus'
         break
         ;;
     "Quit")
@@ -78,6 +82,8 @@ elif [ "$OS" = "arch" ]; then
   source scripts/arch.sh
 elif [ "$OS" = "mac" ]; then
   source scripts/mac.sh
+elif [ "$OS" = "solus" ]; then
+  source scripts/solus.sh
 else
   echo -e "\nCould not detect OS/distro. Stopping execution"
   exit 0
