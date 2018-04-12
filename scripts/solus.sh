@@ -7,7 +7,11 @@ sudo eopkg -y install \
   cabextract \
   cmake \
   ctags \
+  diff-utils \
+  docker \
+  docker-compose \
   gcc \
+  kitematic \
   mono-devel \
   neovim \
   nodejs \
