@@ -7,7 +7,7 @@ sudo eopkg -y install \
   cabextract \
   cmake \
   ctags \
-  diff-utils \
+  diffutils \
   docker \
   docker-compose \
   gcc \
@@ -34,10 +34,5 @@ sudo eopkg -y install \
 # Install python modules
 pip install --user --upgrade neovim
 pip3 install --user --upgrade neovim
-
-# Install Winetricks
-wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
-chmod +x winetricks
-sudo mv -v winetricks /usr/local/bin
 
 source scripts/common.sh
