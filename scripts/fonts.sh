@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$OS" = "darwin" ]; then
+if [[ ("$OS" = "darwin") || ("$OS" = "microsoft") ]]; then
   echo 'Just install them yourself for now!!!!!'
 else
   ### FiraCode
