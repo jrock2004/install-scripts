@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 sudo yarn global add \
-  diff-so-fancy \
+  create-react-app \
   ember-cli \
   eslint \
+  npm-check-updates \
   sass

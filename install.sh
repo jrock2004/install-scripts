@@ -23,12 +23,12 @@ command_exists() {
 
 # Ask the user what OS they are running instead of trying to guess
 PS3='Which OS are you running: '
-options=("Solus" "Bash on Windows" "Ubuntu/Debian" "Apple" "Quit")
+options=("Arch" "Bash on Windows" "Apple" "Quit")
 select opt in "${options[@]}"
 do
   case $opt in
-    "Ubuntu/Debian")
-      OS='debian'
+    "Arch")
+      OS='arch'
       break
       ;;
     "Bash on Windows")
@@ -37,10 +37,6 @@ do
       ;;
     "Apple")
         OS='mac'
-        break
-        ;;
-    "Solus")
-        OS='solus'
         break
         ;;
     "Quit")
@@ -66,16 +62,12 @@ echo -e "\nGrabbing dotfiles and putting them into ~/.dotfiles"
 git clone $DOTFILESGITHUB $HOME/.dotfiles
 
 # Installing the apps that are needed
-if [ "$OS" = "fedora" ]; then
-  source scripts/fedora.sh
-elif [[ ("$OS" = "debian") || ("$OS" = "microsoft") ]]; then
+if [[ ("$OS" = "debian") || ("$OS" = "microsoft") ]]; then
   source scripts/debian.sh
 elif [ "$OS" = "arch" ]; then
   source scripts/arch.sh
 elif [ "$OS" = "mac" ]; then
   source scripts/mac.sh
-elif [ "$OS" = "solus" ]; then
-  source scripts/solus.sh
 else
   echo -e "\nCould not detect OS/distro. Stopping execution"
   exit 0

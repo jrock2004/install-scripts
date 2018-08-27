@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
 sudo pacman -Sy \
+  aurman \
   cabextract \
   chrome-gnome-shell \
+  ctags \
+  diff-so-fancy \
+  docker \
+  docker-compose \
   mono \
   ngrep \
   neovim \
@@ -19,7 +24,7 @@ sudo pacman -Sy \
   yarn \
   zsh
 
-yaourt -S \
+aurman -S \
   visual-studio-code-bin \
   visual-studio-code-insiders
 
