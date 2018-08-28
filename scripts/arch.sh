@@ -21,11 +21,11 @@ sudo pacman -Sy \
   tmux \
   vim \
   xclip \
-  yarn \
   zsh
 
 aurman -S \
   visual-studio-code-bin \
-  visual-studio-code-insiders
+  visual-studio-code-insiders \
+  yarn
 
 source scripts/common.sh
