@@ -24,8 +24,12 @@ sudo pacman -Sy \
   zsh
 
 aurman -S \
+  slack-desktop \
+  spotify \
   visual-studio-code-bin \
   visual-studio-code-insiders \
   yarn
+
+sudo systemctl enable docker.service
 
 source scripts/common.sh
