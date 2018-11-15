@@ -36,7 +36,8 @@ sudo apt-get -y install \
   python-pip \
   python3-dev \
   python3-pip \
-  ruby2.3 \
+  ruby2.5 \
+  ruby2.5-dev \
   silversearcher-ag \
   tmux \
   vim \
@@ -64,4 +65,3 @@ else
 fi
 
 source scripts/common.sh
-
