@@ -54,6 +54,7 @@ else
   sudo apt-get -y install \
     chrome-gnome-shell \
     code \
+    gnome-tweak-tool \
     obs-studio \
     openshot \
     wine-development

@@ -27,5 +27,7 @@ if ! [ "$OS" = "microsoft" ]; then
   # Set auto timezone
   gsettings set org.gnome.desktop.datetime automatic-timezone true
 
-fi
+  # Minimize to dock icon
+  gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
+fi
