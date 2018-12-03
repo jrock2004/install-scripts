@@ -16,35 +16,35 @@ OS=''
 
 # A function to check if a command exists
 command_exists() {
-  type "$1" > /dev/null 2>&1
+	type "$1" > /dev/null 2>&1
 }
 
 ###################
 
 # Ask the user what OS they are running instead of trying to guess
 PS3='Which OS are you running: '
-options=("Ubuntu" "Bash on Windows" "Apple" "Quit")
+options=("Apple" "Ubuntu" "Bash on Windows" "Quit")
 select opt in "${options[@]}"
 do
-  case $opt in
-    "Ubuntu")
-      OS='debian'
-      break
-      ;;
-    "Bash on Windows")
-      OS='microsoft'
-      break
-      ;;
-    "Apple")
-        OS='mac'
-        break
-        ;;
-    "Quit")
-      exit 0
-      break
-      ;;
-    *) echo invalid option;;
-  esac
+	case $opt in
+		"Ubuntu")
+			OS='debian'
+			break
+			;;
+		"Bash on Windows")
+			OS='microsoft'
+			break
+			;;
+		"Apple")
+			OS='mac'
+			break
+			;;
+		"Quit")
+			exit 0
+			break
+			;;
+		*) echo invalid option;;
+	esac
 done
 
 # Create some directories
@@ -52,9 +52,9 @@ echo -e "\n Creating some default directories that we will be using"
 mkdir -p $BIN
 
 if [ "$OS" = "microsoft" ]; then
-  ln -s /mnt/c/Development $DEVFOLDER
+	ln -s /mnt/c/Development $DEVFOLDER
 else
-  mkdir -p $DEVFOLDER
+	mkdir -p $DEVFOLDER
 fi
 
 # Lets pull in my dotfiles
@@ -63,14 +63,14 @@ git clone $DOTFILESGITHUB $HOME/.dotfiles
 
 # Installing the apps that are needed
 if [[ ("$OS" = "debian") || ("$OS" = "microsoft") ]]; then
-  source scripts/debian.sh
+	source scripts/debian.sh
 elif [ "$OS" = "arch" ]; then
-  source scripts/arch.sh
+	source scripts/arch.sh
 elif [ "$OS" = "mac" ]; then
-  source scripts/mac.sh
+	source scripts/mac.sh
 else
-  echo -e "\nCould not detect OS/distro. Stopping execution"
-  exit 0
+	echo -e "\nCould not detect OS/distro. Stopping execution"
+	exit 0
 fi
 
 # Symlink from .dotfiles to your home directory
@@ -86,42 +86,47 @@ source scripts/yarn.sh
 # Setup SSH key if needed
 echo -e "Setting up an SSH key to use for github"
 if [ ! -d ~/.ssh ]; then
-  mkdir ~/.ssh
+	mkdir ~/.ssh
 fi
 
 if [ ! -f ~/.ssh/id_rsa.pub  ]; then
-  ssh-keygen -t rsa -b 4096 -C "$EMAIL"
-  eval "$(ssh-agent -s)"
-  ssh-add ~/.ssh/id_rsa
+	ssh-keygen -t rsa -b 4096 -C "$EMAIL"
+	eval "$(ssh-agent -s)"
+	ssh-add ~/.ssh/id_rsa
 
-  GITHUB_SSH_URL=https://github.com/settings/ssh
+	GITHUB_SSH_URL=https://github.com/settings/ssh
 
-  if command_exists xdg-open; then
-    xdg-open $GITHUB_SSH_URL
-  else
-    echo $GITHUB_SSH_URL
-  fi
+	if command_exists xdg-open; then
+		xdg-open $GITHUB_SSH_URL
+	else
+		echo $GITHUB_SSH_URL
+	fi
 
-  cat $HOME/.ssh/id_rsa.pub
+	cat $HOME/.ssh/id_rsa.pub
 
-  read -p "`echo $'\n\n'` Hit ENTER after adding to Github `echo $'\n\n'`"
+	read -p "`echo $'\n\n'` Hit ENTER after adding to Github `echo $'\n\n'`"
 else
-  echo ".ssh directory already exists, not generating"
+	echo ".ssh directory already exists, not generating"
 fi
 
 if ! command_exists zplug; then
-  echo "installing zplug, a plugin manager for zsh - http://zplug.sh"
-  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+	echo "installing zplug, a plugin manager for zsh - http://zplug.sh"
+	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 fi
 
 # Setting env to zsh instead of bash
 echo "Switching to ZSH"
 if ! command_exists zsh; then
-  echo "zsh not found. Please install and then re-run installation scripts"
-  exit 1
+	echo "zsh not found. Please install and then re-run installation scripts"
+	exit 1
 elif ! [[ $SHELL =~ .*zsh.* ]]; then
-  echo "Configuring zsh as default shell"
-  sudo usermod -s $(which zsh) $(whoami)
+	echo "Configuring zsh as default shell"
+
+	if [[ "$OS" = "darwin" ]]; then
+		chsh -s "$(command -v zsh)"
+	else
+		sudo usermod -s $(which zsh) $(whoami)
+	fi
 fi
 
 echo -e "\nScript has completed. You can now delete the install scripts folder as its no longer needed"
