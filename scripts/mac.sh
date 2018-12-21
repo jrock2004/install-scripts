@@ -35,6 +35,11 @@ for formula in "${formulas[@]}"; do
 	fi
 done
 
+# Install pip
+sudo easy_install pip
+pip install --user --upgrade neovim
+pip3 install --user --upgrade neovim
+
 brew tap caskroom/versions
 
 casks=(
@@ -42,6 +47,7 @@ casks=(
 	atom
 	bartender
 	dropbox
+	fantastical
 	firefox
 	google-chrome
 	ishowu-hd
