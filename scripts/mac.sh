@@ -10,9 +10,7 @@ formulas=(
 	bat
 	diff-so-fancy
 	git
-	'grep --with-default-names'
 	neovim
-	node
 	python
 	reattach-to-user-namespace
 	the_silver_searcher
@@ -45,13 +43,14 @@ brew tap caskroom/versions
 casks=(
 	alfred
 	atom
-	bartender
+	discord
+	docker
 	dropbox
-	fantastical
 	firefox
 	google-chrome
 	ishowu-hd
 	iterm2
+	minikube
 	slack
 	spectacle
 	spotify
@@ -69,6 +68,16 @@ for cask in "${casks[@]}"; do
 		brew cask install "$cask"
 	fi
 done
+
+# Installing nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+source $HOME/.nvm/nvm.sh
+nvm install 10.14.2
+
+source scripts/vscodeext.sh
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-hyperkit
+sudo install -o root -g wheel -m 4755 docker-machine-driver-hyperkit /usr/local/bin/
 
 echo -e "\n\nSetting OS X settings"
 echo "=============================="
@@ -103,3 +112,6 @@ for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 
 # Install some extra tools
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
 $HOME/.fzf/install
+
+# A fix for neovim startify
+mkdir -p ~/.vim/files/info
