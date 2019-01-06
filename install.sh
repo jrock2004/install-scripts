@@ -36,7 +36,7 @@ do
 			break
 			;;
 		"Apple")
-			OS='mac'
+			OS='darwin'
 			break
 			;;
 		"Quit")
@@ -66,7 +66,7 @@ if [[ ("$OS" = "debian") || ("$OS" = "microsoft") ]]; then
 	source scripts/debian.sh
 elif [ "$OS" = "arch" ]; then
 	source scripts/arch.sh
-elif [ "$OS" = "mac" ]; then
+elif [ "$OS" = "darwin" ]; then
 	source scripts/mac.sh
 else
 	echo -e "\nCould not detect OS/distro. Stopping execution"
@@ -123,6 +123,7 @@ elif ! [[ $SHELL =~ .*zsh.* ]]; then
 	echo "Configuring zsh as default shell"
 
 	if [[ "$OS" = "darwin" ]]; then
+		sudo sh -c "echo $(which zsh) >> /etc/shells"
 		chsh -s "$(command -v zsh)"
 	else
 		sudo usermod -s $(which zsh) $(whoami)

@@ -18,6 +18,7 @@ formulas=(
 	tree
 	vim
 	wget
+	yarn
 	zplug
 	zsh
 )
@@ -111,3 +112,6 @@ for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 
 # Install some extra tools
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
 $HOME/.fzf/install
+
+# A fix for neovim startify
+mkdir -p ~/.vim/files/info
