@@ -73,7 +73,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 source $HOME/.nvm/nvm.sh
 nvm install --lts
 
-brew install yarn --without-node
+brew install yarn --ignore-dependencies
 
 source scripts/vscodeext.sh
 
