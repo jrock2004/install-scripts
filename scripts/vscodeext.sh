@@ -5,7 +5,10 @@ exts=(
 	dbaeumer.vscode-eslint
 	EditorConfig.EditorConfig
 	emberjs.vscode-ember
+	josa.ember-related-files
+	jrock2004.vscode-ember-snippets
 	ngryman.codesandbox-theme
+	peterjausovec.vscode-docker
 	PKief.material-icon-theme
 )
 
