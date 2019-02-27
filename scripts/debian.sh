@@ -65,4 +65,7 @@ else
 	sudo mv -v winetricks /usr/local/bin
 fi
 
+# Need to link grep to directory that our configs are looking
+ln -sf /bin/grep /usr/bin/grep
+
 source scripts/common.sh
