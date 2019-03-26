@@ -11,6 +11,7 @@ formulas=(
 	diff-so-fancy
 	git
 	neovim
+	node
 	python
 	reattach-to-user-namespace
 	the_silver_searcher
@@ -67,13 +68,6 @@ for cask in "${casks[@]}"; do
 		brew cask install "$cask"
 	fi
 done
-
-# Installing nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-source $HOME/.nvm/nvm.sh
-nvm install --lts
-
-brew install yarn --ignore-dependencies
 
 source scripts/vscodeext.sh
 
