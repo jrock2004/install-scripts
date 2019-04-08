@@ -13,6 +13,7 @@ formulas=(
 	diff-so-fancy
 	git
 	neovim
+	nvm
 	python
 	reattach-to-user-namespace
 	the_silver_searcher
