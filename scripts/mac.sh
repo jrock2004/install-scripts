@@ -6,12 +6,13 @@ if test ! "$( command -v brew )"; then
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+touch $HOME/.profile
+
 formulas=(
 	bat
 	diff-so-fancy
 	git
 	neovim
-	node
 	python
 	reattach-to-user-namespace
 	the_silver_searcher
@@ -48,14 +49,10 @@ casks=(
 	dropbox
 	firefox
 	google-chrome
-	ishowu-hd
 	iterm2
-	minikube
 	slack
 	spectacle
-	spotify
 	visual-studio-code
-	1password
 )
 
 ### Installing GUI Apps
@@ -68,6 +65,12 @@ for cask in "${casks[@]}"; do
 		brew cask install "$cask"
 	fi
 done
+
+### Install nvm to use instead of install full node
+source $(brew --prefix nvm)/nvm.sh
+echo 'source $(brew --prefix nvm)/nvm.sh' >> ~/.profile
+nvm install --lts
+npm install -g yarn
 
 source scripts/vscodeext.sh
 
