@@ -13,7 +13,7 @@ formulas=(
 	diff-so-fancy
 	git
 	neovim
-	nvm
+	node
 	python
 	reattach-to-user-namespace
 	the_silver_searcher
@@ -21,6 +21,7 @@ formulas=(
 	tree
 	vim
 	wget
+	yarn
 	zplug
 	zsh
 )
@@ -37,7 +38,7 @@ done
 
 # Install pip
 sudo easy_install pip
-pip install --user --upgrade neovim
+pip2 install --user --upgrade neovim
 pip3 install --user --upgrade neovim
 
 brew tap caskroom/versions
@@ -60,23 +61,19 @@ casks=(
 for cask in "${casks[@]}"; do
 	cask_name=$( echo "$cask" | awk '{print $1}' )
 
-	if brew list "$cask_name" > /dev/null 2>&1; then
-		echo "$cask_name already installed... skipping."
-	else
-		brew cask install "$cask"
-	fi
-done
+	cat $cask_name >> $HOME/apps-to-install.txt
 
-### Install nvm to use instead of install full node
-source $(brew --prefix nvm)/nvm.sh
-echo 'source $(brew --prefix nvm)/nvm.sh' >> ~/.profile
-nvm install --lts
-npm install -g yarn
+	# if brew list "$cask_name" > /dev/null 2>&1; then
+	# 	echo "$cask_name already installed... skipping."
+	# else
+	# 	brew cask install "$cask"
+	# fi
+done
 
 source scripts/vscodeext.sh
 
-curl -LO https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-hyperkit
-sudo install -o root -g wheel -m 4755 docker-machine-driver-hyperkit /usr/local/bin/
+# curl -LO https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-hyperkit
+# sudo install -o root -g wheel -m 4755 docker-machine-driver-hyperkit /usr/local/bin/
 
 echo -e "\n\nSetting OS X settings"
 echo "=============================="
@@ -110,7 +107,7 @@ for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 
 
 # Install some extra tools
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-$HOME/.fzf/install
+$HOME/.fzf/install --all --no-bash --no-fish
 
 # A fix for neovim startify
 mkdir -p ~/.vim/files/info

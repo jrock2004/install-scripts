@@ -99,7 +99,7 @@ if [ ! -f ~/.ssh/id_rsa.pub  ]; then
 	if command_exists xdg-open; then
 		xdg-open $GITHUB_SSH_URL
 	else
-		echo $GITHUB_SSH_URL
+		open $GITHUB_SSH_URL
 	fi
 
 	cat $HOME/.ssh/id_rsa.pub
@@ -123,8 +123,17 @@ elif ! [[ $SHELL =~ .*zsh.* ]]; then
 	echo "Configuring zsh as default shell"
 
 	if [[ "$OS" = "darwin" ]]; then
-		sudo sh -c "echo $(which zsh) >> /etc/shells"
-		chsh -s "$(command -v zsh)"
+		zsh_path="$( command -v zsh )"
+
+		if ! grep "$zsh_path" /etc/shells; then
+		    echo "adding $zsh_path to /etc/shells"
+		    echo "$zsh_path" | sudo tee -a /etc/shells
+		fi
+
+		if [[ "$SHELL" != "$zsh_path" ]]; then
+		    chsh -s "$zsh_path"
+		    echo "default shell changed to $zsh_path"
+		fi
 	else
 		sudo usermod -s $(which zsh) $(whoami)
 	fi
