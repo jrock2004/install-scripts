@@ -41,6 +41,10 @@ sudo easy_install pip
 pip2 install --user --upgrade neovim
 pip3 install --user --upgrade neovim
 
+
+sudo gem install neovim
+
+
 brew tap caskroom/versions
 
 casks=(

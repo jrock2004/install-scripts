@@ -5,4 +5,5 @@ yarn global add \
 	create-react-app \
 	ember-cli \
 	eslint \
+	neovim \
 	sass
