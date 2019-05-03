@@ -80,8 +80,8 @@ source scripts/link.sh
 source scripts/fonts.sh
 
 # Installing Node Apps
-echo -e "Installing global node apps via yarn"
-source scripts/yarn.sh
+# echo -e "Installing global node apps via yarn"
+# source scripts/yarn.sh
 
 # Setup SSH key if needed
 echo -e "Setting up an SSH key to use for github"

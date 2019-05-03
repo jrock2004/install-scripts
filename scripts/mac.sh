@@ -13,7 +13,6 @@ formulas=(
 	diff-so-fancy
 	git
 	neovim
-	node
 	python
 	reattach-to-user-namespace
 	the_silver_searcher
@@ -21,7 +20,6 @@ formulas=(
 	tree
 	vim
 	wget
-	yarn
 	zplug
 	zsh
 )
