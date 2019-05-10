@@ -11,11 +11,16 @@ touch $HOME/.profile
 formulas=(
 	bat
 	diff-so-fancy
+	fzf
 	git
+	highlight
 	neovim
+	node
 	python
 	reattach-to-user-namespace
+	ripgrep
 	the_silver_searcher
+	spellcheck
 	tmux
 	tree
 	vim
@@ -34,16 +39,12 @@ for formula in "${formulas[@]}"; do
 	fi
 done
 
-# Install pip
-sudo easy_install pip
+/usr/local/opt/fzf/install --all --no-bash --no-fish
 pip2 install --user --upgrade neovim
 pip3 install --user --upgrade neovim
 
 
-sudo gem install neovim
-
-
-brew tap caskroom/versions
+# brew tap caskroom/versions
 
 casks=(
 	alfred
@@ -62,8 +63,6 @@ casks=(
 ### Installing GUI Apps
 for cask in "${casks[@]}"; do
 	cask_name=$( echo "$cask" | awk '{print $1}' )
-
-	cat $cask_name >> $HOME/apps-to-install.txt
 
 	# if brew list "$cask_name" > /dev/null 2>&1; then
 	# 	echo "$cask_name already installed... skipping."
@@ -106,10 +105,6 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 echo "Kill affected applications"
 for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
-
-# Install some extra tools
-git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-$HOME/.fzf/install --all --no-bash --no-fish
 
 # A fix for neovim startify
 mkdir -p ~/.vim/files/info
