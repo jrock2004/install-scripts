@@ -59,7 +59,7 @@ fi
 
 # Lets pull in my dotfiles
 echo -e "\nGrabbing dotfiles and putting them into ~/.dotfiles"
-git clone $DOTFILESGITHUB $HOME/.dotfiles
+git clone --recurse-submodules $DOTFILESGITHUB $HOME/.dotfiles
 
 # Installing the apps that are needed
 if [[ ("$OS" = "debian") || ("$OS" = "microsoft") ]]; then
