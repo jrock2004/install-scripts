@@ -20,7 +20,6 @@ formulas=(
 	reattach-to-user-namespace
 	ripgrep
 	the_silver_searcher
-	spellcheck
 	tmux
 	tree
 	vim
@@ -39,8 +38,8 @@ for formula in "${formulas[@]}"; do
 	fi
 done
 
-/usr/local/opt/fzf/install --all --no-bash --no-fish
-pip2 install --user --upgrade neovim
+/usr/local/opt/fzf/install
+# pip2 install --user --upgrade neovim
 pip3 install --user --upgrade neovim
 
 
@@ -70,8 +69,6 @@ for cask in "${casks[@]}"; do
 	# 	brew cask install "$cask"
 	# fi
 done
-
-source scripts/vscodeext.sh
 
 # curl -LO https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-hyperkit
 # sudo install -o root -g wheel -m 4755 docker-machine-driver-hyperkit /usr/local/bin/
