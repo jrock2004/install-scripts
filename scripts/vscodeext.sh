@@ -3,8 +3,11 @@
 exts=(
 	arcticicestudio.nord-visual-studio-code
 	dbaeumer.vscode-eslint
+	dsznajder.es7-react-js-snippets
 	EditorConfig.EditorConfig
 	emberjs.vscode-ember
+	esbenp.prettier-vscode
+	johnpapa.winteriscoming
 	josa.ember-related-files
 	jrock2004.vscode-ember-snippets
 	ngryman.codesandbox-theme
