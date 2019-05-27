@@ -8,17 +8,17 @@ if [ "$OS" = "microsoft" ]; then
 	sudo apt-get -y install software-properties-common apt-transport-https
 else
 	# VS Code
-	curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-	sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-	sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+	# curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+	# sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+	# sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 fi
 
 # Yarn
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+# curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+# echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 # NodeJS
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+# curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 
 # Installing some apps
 ###############################
@@ -28,6 +28,7 @@ sudo apt-get -y install \
 	cmake \
 	exuberant-ctags \
 	gcc \
+	highlight \
 	mono-devel \
 	neovim \
 	ngrep \
@@ -43,6 +44,7 @@ sudo apt-get -y install \
 	vim \
 	xclip \
 	yarn \
+	zplug \
 	zsh
 
 
@@ -54,9 +56,11 @@ else
 	sudo apt-get -y install \
 		chrome-gnome-shell \
 		code \
+		firefox \
 		gnome-tweak-tool \
 		obs-studio \
 		openshot \
+		slack \
 		wine-development
 
 	# Install Winetricks
