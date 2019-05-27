@@ -6,7 +6,7 @@
 if [ "$OS" = "microsoft" ]; then
 	# Neovim repo
 	sudo apt-get -y install software-properties-common apt-transport-https
-else
+# else
 	# VS Code
 	# curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 	# sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg

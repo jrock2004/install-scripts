@@ -4,7 +4,7 @@
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
 $HOME/.fzf/install
 
-if ! [ "$OS" = "microsoft" ]; then
+# if ! [ "$OS" = "microsoft" ]; then
 	# Get Tmux spotify client
 	# sudo curl https://raw.githubusercontent.com/jrock2004/tmux-spotify/master/tmux-spotify -o /usr/local/bin/tmux-spotify
 	# sudo chmod +x /usr/local/bin/tmux-spotify
@@ -29,4 +29,4 @@ if ! [ "$OS" = "microsoft" ]; then
 	# # Minimize to dock icon
 	# gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
-fi
+# fi
