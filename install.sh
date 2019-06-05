@@ -23,11 +23,11 @@ command_exists() {
 
 # Ask the user what OS they are running instead of trying to guess
 PS3='Which OS are you running: '
-options=("Apple" "Elementary" "Bash on Windows" "Quit")
+options=("Apple" "PopOS" "Bash on Windows" "Quit")
 select opt in "${options[@]}"
 do
 	case $opt in
-		"Elementary")
+		"PopOS")
 			OS='debian'
 			break
 			;;
