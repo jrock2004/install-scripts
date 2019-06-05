@@ -6,11 +6,11 @@
 if [ "$OS" = "microsoft" ]; then
 	# Neovim repo
 	sudo apt-get -y install software-properties-common apt-transport-https
-# else
-	# VS Code
-	# curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-	# sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-	# sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+fi
+
+if [ "$OS" = "debian" ]; then
+	sudo mkdir /usr/local/opt
+	sudo chown -R jcostanzo /usr/local/opt
 fi
 
 # Yarn
@@ -19,6 +19,8 @@ fi
 
 # NodeJS
 # curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+
+
 
 # Installing some apps
 ###############################
@@ -47,27 +49,9 @@ sudo apt-get -y install \
 	zplug \
 	zsh
 
-
-if [ "$OS" = "microsoft" ]; then
-	pip install --upgrade pip
-	pip install --user --upgrade neovim
-	pip3 install --user --upgrade neovim
-else
-	sudo apt-get -y install \
-		chrome-gnome-shell \
-		code \
-		firefox \
-		gnome-tweak-tool \
-		obs-studio \
-		openshot \
-		slack \
-		wine-development
-
-	# Install Winetricks
-	wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
-	chmod +x winetricks
-	sudo mv -v winetricks /usr/local/bin
-fi
+pip install --upgrade pip
+pip install --user --upgrade neovim
+pip3 install --user --upgrade neovim
 
 # Need to link grep to directory that our configs are looking
 sudo ln -sf /bin/grep /usr/bin/grep
