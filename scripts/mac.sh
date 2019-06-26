@@ -13,6 +13,7 @@ formulas=(
 	diff-so-fancy
 	fzf
 	git
+	grep
 	highlight
 	neovim
 	node
@@ -39,9 +40,7 @@ for formula in "${formulas[@]}"; do
 done
 
 /usr/local/opt/fzf/install
-# pip2 install --user --upgrade neovim
-pip3 install --user --upgrade neovim
-
+pip3 install pynvim
 
 # brew tap caskroom/versions
 
