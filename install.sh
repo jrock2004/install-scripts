@@ -23,11 +23,11 @@ command_exists() {
 
 # Ask the user what OS they are running instead of trying to guess
 PS3='Which OS are you running: '
-options=("Apple" "PopOS" "Bash on Windows" "Quit")
+options=("Apple" "Linux" "Bash on Windows" "Quit")
 select opt in "${options[@]}"
 do
 	case $opt in
-		"PopOS")
+		"Linux")
 			OS='debian'
 			break
 			;;
@@ -52,6 +52,7 @@ echo -e "\n Creating some default directories that we will be using"
 mkdir -p $BIN
 
 if [ "$OS" = "microsoft" ]; then
+	echo -e "\n Creating a symlink so we do not corrupt code in folder"
 	ln -s /mnt/c/Development $DEVFOLDER
 else
 	mkdir -p $DEVFOLDER
@@ -64,8 +65,6 @@ git clone $DOTFILESGITHUB $HOME/.dotfiles
 # Installing the apps that are needed
 if [[ ("$OS" = "debian") || ("$OS" = "microsoft") ]]; then
 	source scripts/debian.sh
-elif [ "$OS" = "arch" ]; then
-	source scripts/arch.sh
 elif [ "$OS" = "darwin" ]; then
 	source scripts/mac.sh
 else
@@ -79,40 +78,33 @@ source scripts/link.sh
 
 source scripts/fonts.sh
 
-# Installing Node Apps
-# echo -e "Installing global node apps via yarn"
-# source scripts/yarn.sh
+source scripts/git.sh
 
-# Setup SSH key if needed
-echo -e "Setting up an SSH key to use for github"
-if [ ! -d ~/.ssh ]; then
-	mkdir ~/.ssh
-fi
+# # Setup SSH key if needed
+# echo -e "Setting up an SSH key to use for github"
+# if [ ! -d ~/.ssh ]; then
+# 	mkdir ~/.ssh
+# fi
 
-if [ ! -f ~/.ssh/id_rsa.pub  ]; then
-	ssh-keygen -t rsa -b 4096 -C "$EMAIL"
-	eval "$(ssh-agent -s)"
-	ssh-add ~/.ssh/id_rsa
+# if [ ! -f ~/.ssh/id_rsa.pub  ]; then
+# 	ssh-keygen -t rsa -b 4096 -C "$EMAIL"
+# 	eval "$(ssh-agent -s)"
+# 	ssh-add ~/.ssh/id_rsa
 
-	GITHUB_SSH_URL=https://github.com/settings/ssh
+# 	GITHUB_SSH_URL=https://github.com/settings/ssh
 
-	if command_exists xdg-open; then
-		xdg-open $GITHUB_SSH_URL
-	else
-		open $GITHUB_SSH_URL
-	fi
+# 	if command_exists xdg-open; then
+# 		xdg-open $GITHUB_SSH_URL
+# 	else
+# 		open $GITHUB_SSH_URL
+# 	fi
 
-	cat $HOME/.ssh/id_rsa.pub
+# 	cat $HOME/.ssh/id_rsa.pub
 
-	read -p "`echo $'\n\n'` Hit ENTER after adding to Github `echo $'\n\n'`"
-else
-	echo ".ssh directory already exists, not generating"
-fi
-
-if ! command_exists zplug; then
-	echo "installing zplug, a plugin manager for zsh - http://zplug.sh"
-	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
-fi
+# 	read -p "`echo $'\n\n'` Hit ENTER after adding to Github `echo $'\n\n'`"
+# else
+# 	echo ".ssh directory already exists, not generating"
+# fi
 
 # Setting env to zsh instead of bash
 echo "Switching to ZSH"
@@ -126,13 +118,13 @@ elif ! [[ $SHELL =~ .*zsh.* ]]; then
 		zsh_path="$( command -v zsh )"
 
 		if ! grep "$zsh_path" /etc/shells; then
-		    echo "adding $zsh_path to /etc/shells"
-		    echo "$zsh_path" | sudo tee -a /etc/shells
+			echo "adding $zsh_path to /etc/shells"
+			echo "$zsh_path" | sudo tee -a /etc/shells
 		fi
 
 		if [[ "$SHELL" != "$zsh_path" ]]; then
-		    chsh -s "$zsh_path"
-		    echo "default shell changed to $zsh_path"
+			chsh -s "$zsh_path"
+			echo "default shell changed to $zsh_path"
 		fi
 	else
 		sudo usermod -s $(which zsh) $(whoami)
