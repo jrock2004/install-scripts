@@ -16,8 +16,8 @@ formulas=(
   grep
   highlight
   hub
-  "neovim --HEAD"
-  node
+  "neovim --head"
+  "node@10"
   python
   reattach-to-user-namespace
   ripgrep
@@ -26,7 +26,7 @@ formulas=(
   tree
   vim
   wget
-  yarn
+  "yarn --ignore-dependencies"
   z
   zsh
 )
