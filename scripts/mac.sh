@@ -26,7 +26,6 @@ formulas=(
   tree
   vim
   wget
-  "yarn --ignore-dependencies"
   z
   zsh
 )
