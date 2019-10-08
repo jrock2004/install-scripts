@@ -26,6 +26,7 @@ formulas=(
   tree
   vim
   wget
+  yarn
   z
   zsh
 )
