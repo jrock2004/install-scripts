@@ -16,8 +16,7 @@ formulas=(
   grep
   highlight
   hub
-  "neovim --head"
-  "node@10"
+  neovim
   python
   reattach-to-user-namespace
   ripgrep
