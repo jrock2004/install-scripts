@@ -131,4 +131,5 @@ elif ! [[ $SHELL =~ .*zsh.* ]]; then
 	fi
 fi
 
+echo -e "\nRestart your terminal and do nvm install --lts"
 echo -e "\nScript has completed. You can now delete the install scripts folder as its no longer needed"
