@@ -30,11 +30,11 @@ sudo apt-get -y install \
 	cmake \
 	exuberant-ctags \
 	gcc \
+  grep \
 	highlight \
 	mono-devel \
 	neovim \
 	ngrep \
-	nodejs \
 	python-dev \
 	python-pip \
 	python3-dev \
@@ -44,16 +44,23 @@ sudo apt-get -y install \
 	silversearcher-ag \
 	tmux \
 	vim \
+  wget \
 	xclip \
-	yarn \
 	zplug \
 	zsh
 
-pip install --upgrade pip
-pip install --user --upgrade neovim
-pip3 install --user --upgrade neovim
+curl -LO https://github.com/sharkdp/bat/releases/download/v0.12.1/bat_0.12.1_amd64.deb
+sudo dpkg -i bat_0.12.1_amd.deb
+
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+sudo dpkg -i ripgrep_11.0.2_amd64.deb
+
+pip3 install pynvim
 
 # Need to link grep to directory that our configs are looking
 sudo ln -sf /bin/grep /usr/bin/grep
+
+# Install nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
 source scripts/common.sh

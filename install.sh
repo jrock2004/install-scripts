@@ -80,32 +80,6 @@ source scripts/fonts.sh
 
 source scripts/git.sh
 
-# # Setup SSH key if needed
-# echo -e "Setting up an SSH key to use for github"
-# if [ ! -d ~/.ssh ]; then
-# 	mkdir ~/.ssh
-# fi
-
-# if [ ! -f ~/.ssh/id_rsa.pub  ]; then
-# 	ssh-keygen -t rsa -b 4096 -C "$EMAIL"
-# 	eval "$(ssh-agent -s)"
-# 	ssh-add ~/.ssh/id_rsa
-
-# 	GITHUB_SSH_URL=https://github.com/settings/ssh
-
-# 	if command_exists xdg-open; then
-# 		xdg-open $GITHUB_SSH_URL
-# 	else
-# 		open $GITHUB_SSH_URL
-# 	fi
-
-# 	cat $HOME/.ssh/id_rsa.pub
-
-# 	read -p "`echo $'\n\n'` Hit ENTER after adding to Github `echo $'\n\n'`"
-# else
-# 	echo ".ssh directory already exists, not generating"
-# fi
-
 # Setting env to zsh instead of bash
 echo "Switching to ZSH"
 if ! command_exists zsh; then
