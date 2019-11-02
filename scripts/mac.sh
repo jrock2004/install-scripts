@@ -11,6 +11,7 @@ touch $HOME/.profile
 formulas=(
   bat
   diff-so-fancy
+  Schniz/tap/fnm
   fzf
   git
   grep
@@ -64,6 +65,3 @@ done
 
 # A fix for neovim startify
 mkdir -p ~/.vim/files/info
-
-# Install nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.0/install.sh | bash
