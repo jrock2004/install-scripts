@@ -36,10 +36,12 @@ sudo apt-get -y install \
   silversearcher-ag \
   tmux \
   vim \
-  wget \
   xclip \
-  zplug \
   zsh
+
+# Install some python nvim dep
+pip install pynvim
+pip3 install pynvim
 
 curl -LO https://github.com/sharkdp/bat/releases/download/v0.12.1/bat_0.12.1_amd64.deb
 sudo dpkg -i bat_0.12.1_amd64.deb
@@ -47,12 +49,11 @@ sudo dpkg -i bat_0.12.1_amd64.deb
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
 sudo dpkg -i ripgrep_11.0.2_amd64.deb
 
-pip3 install pynvim
-
 # Need to link grep to directory that our configs are looking
 sudo ln -sf /bin/grep /usr/bin/grep
 
 # Install fnm
 curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash -s -- --skip-shell
+sudo cp $HOME/.fnm/fnm /usr/local/bin
 
 source scripts/common.sh
