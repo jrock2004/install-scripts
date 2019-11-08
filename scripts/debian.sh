@@ -54,6 +54,5 @@ sudo ln -sf /bin/grep /usr/bin/grep
 
 # Install fnm
 curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash -s -- --skip-shell
-sudo cp $HOME/.fnm/fnm /usr/local/bin
 
 source scripts/common.sh
