@@ -2,6 +2,7 @@
 
 # Adding some sources
 ##############################
+sudo add-apt-repository ppa:lazygit-team/release
 
 if [ "$OS" = "microsoft" ]; then
 	# Neovim repo
@@ -18,19 +19,29 @@ fi
 ###############################
 
 sudo apt-get -y install \
+  ack \
+  bat \
   cabextract \
   cmake \
   exuberant-ctags \
+  fzf \
   gcc \
+  gnupg \
   grep \
   highlight \
+  htop \
+  hub \
+  kitty \
+  lazygit \
   mono-devel \
+  neofetch \
   neovim \
   ngrep \
   python-dev \
   python-pip \
   python3-dev \
   python3-pip \
+  ripgrep \
   ruby2.5 \
   ruby2.5-dev \
   silversearcher-ag \
@@ -54,5 +65,8 @@ sudo ln -sf /bin/grep /usr/bin/grep
 
 # Install fnm
 curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash -s -- --skip-shell
+
+# Install Lazy Docker
+curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 
 source scripts/common.sh
