@@ -105,5 +105,5 @@ elif ! [[ $SHELL =~ .*zsh.* ]]; then
 	fi
 fi
 
-echo -e "\nRestart your terminal and do nvm install --lts"
+echo -e "\nRestart your terminal and do fnm install 10.17.0 && fnm use 10.17.0"
 echo -e "\nScript has completed. You can now delete the install scripts folder as its no longer needed"

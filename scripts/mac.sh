@@ -8,60 +8,10 @@ fi
 
 touch $HOME/.profile
 
-formulas=(
-  bat
-  diff-so-fancy
-  Schniz/tap/fnm
-  fzf
-  git
-  grep
-  highlight
-  hub
-  neovim
-  python
-  reattach-to-user-namespace
-  ripgrep
-  the_silver_searcher
-  tmux
-  tree
-  vim
-  wget
-  z
-  zsh
-)
+brew bundle
 
-for formula in "${formulas[@]}"; do
-  formula_name=$( echo "$formula" | awk '{print $1}' )
-
-  if brew list "$formula_name" > /dev/null 2>&1; then
-    echo "$formula_name already installed... skipping."
-  else
-    brew install "$formula"
-  fi
-done
-
-/usr/local/opt/fzf/install
+/usr/local/opt/fzf/install --all --no-bash --no-fish
 pip3 install pynvim
-
-casks=(
-  alfred
-  discord
-  docker
-  dropbox
-  firefox
-  google-chrome
-  iterm2
-  slack
-  spectacle
-  visual-studio-code
-)
-
-### Installing GUI Apps
-for cask in "${casks[@]}"; do
-  cask_name=$( echo "$cask" | awk '{print $1}' )
-
-  echo "$cask_name \\n"
-done
 
 # A fix for neovim startify
 mkdir -p ~/.vim/files/info

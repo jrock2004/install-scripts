@@ -4,7 +4,7 @@ DOTFILES=$HOME/.dotfiles
 
 echo -e "\nCreating symlinks"
 echo "=============================="
-linkables=$( find -H "$DOTFILES" -maxdepth 3 -name '*.symlink' )
+linkables=$( find "$DOTFILES/config" -maxdepth 1 2>/dev/null )
 for file in $linkables ; do
 	target="$HOME/.$( basename $file '.symlink' )"
 	if [ -e $target ]; then
