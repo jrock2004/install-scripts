@@ -71,7 +71,7 @@ if [[ ("$OS" = "debian") || ("$OS" = "microsoft") ]]; then
 	source scripts/debian.sh
 elif [ "$OS" = "darwin" ]; then
 	source scripts/mac.sh
-elif [ "$OS" = "arch"]; then
+elif [ "$OS" = "arch" ]; then
   source scripts/arch.sh
 else
 	echo -e "\nCould not detect OS/distro. Stopping execution"

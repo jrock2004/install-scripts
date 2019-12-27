@@ -2,14 +2,13 @@
 
 sudo pacman -Sy \
   ack \
-	aurman \
   bat \
-	cabextract \
+  cabextract \
   cmake \
-	ctags \
-	diff-so-fancy \
-	docker \
-	docker-compose \
+  ctags \
+  diff-so-fancy \
+  docker \
+  docker-compose \
   fzf \
   gcc \
   gnupg \
@@ -18,25 +17,19 @@ sudo pacman -Sy \
   htop \
   hub \
   kitty \
-	mono \
+  mono \
   neofetch \
   neovim \
-	ngrep \
+  ngrep \
   python \
   python2 \
   ripgrep \
-	ruby2.5 \
-	the_silver_searcher \
-	tmux \
-	vim \
-	xclip \
-	zsh
-
-aurman -S \
-	slack-desktop \
-	spotify \
-	visual-studio-code-bin \
-	visual-studio-code-insiders
+  ruby2.5 \
+  the_silver_searcher \
+  tmux \
+  vim \
+  xclip \
+  zsh
 
 sudo systemctl enable docker.service
 
