@@ -2,21 +2,22 @@
 
 sudo pacman -Sy \
 	aurman \
+  bat \
 	cabextract \
-	chrome-gnome-shell \
+  cmake \
 	ctags \
 	diff-so-fancy \
 	docker \
 	docker-compose \
+  gcc \
+  grep \
 	mono \
+  neovim \
 	ngrep \
-	neovim \
-	nodejs \
-	obs-studio \
-	openshot \
-	python-neovim \
-	python2-neovim \
-	ruby2.4 \
+  python \
+  python2 \
+  ripgrep \
+	ruby2.5 \
 	the_silver_searcher \
 	tmux \
 	vim \
@@ -27,10 +28,14 @@ aurman -S \
 	slack-desktop \
 	spotify \
 	visual-studio-code-bin \
-	visual-studio-code-insiders \
-	yarn
+	visual-studio-code-insiders
 
 sudo systemctl enable docker.service
 
+pip install pynvim
+pip3 install pynvim
+
+# Install fnm
+curl -fsSL https://github.com/Schniz/fnm/raw/master/.ci/install.sh | bash -s -- --skip-shell
+
 source scripts/common.sh
-source scripts/vscodeext.sh
